@@ -7,7 +7,7 @@ Priority: optional
 
 Package: nagios-plugins-tikapy-bgp
 Architecture: all
-Depends: ${misc:Depends}, python3, python3-tikapy
+Depends: ${misc:Depends}, python3, python3-simple-icinga-plugin, python3-tikapy
 Description: nagios plugin to check BGP status on Mikrotik RouterOS devices
   - check_tikapy_bgp_peer.py:
     Checks the status of individual bgp peers.
