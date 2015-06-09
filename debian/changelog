@@ -1,5 +1,5 @@
-tikapy-icinga (0.1.0) UNRELEASED; urgency=medium
+tikapy-icinga (0.1.0) trusty; urgency=medium
 
   * Initial release.
 
- -- André Keller <andre.keller@vshn.ch>  Tue, 09 Jun 2015 15:58:34 +0200
+ -- André Keller <andre.keller@vshn.ch>  Tue, 09 Jun 2015 16:09:13 +0200
