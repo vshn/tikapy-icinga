@@ -1,0 +1,13 @@
+Source: tikapy-icinga
+Build-Depends: debhelper (>= 9.0.0)
+Standards-Version: 3.9.5
+Maintainer: André Keller <andre.keller@vshn.ch>
+Section: net
+Priority: optional
+
+Package: nagios-plugins-tikapy-bgp
+Architecture: all
+Depends: ${misc:Depends}, python3, python3-tikapy
+Description: nagios plugin to check BGP status on Mikrotik RouterOS devices
+  - check_tikapy_bgp_peer.py:
+    Checks the status of individual bgp peers.
