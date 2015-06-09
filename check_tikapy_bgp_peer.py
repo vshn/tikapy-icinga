@@ -26,28 +26,26 @@ import logging
 
 class BgpMixin():
     '''API client Mixin providing methods to query bgp information'''
-    def get_peer_details(self, peer_ip):
+    def get_peer_details(self, peer):
         '''Get peer details by its remote address.
         Args:
-          - peer_ip: Remote-Address of Peer (IPv4 or IPv6 address)
+          - peer: Remote-Address (IPv4 or IPv6 address) or name of peer
         Raises:
-          PluginError - If no peer is configured, invalid peer address
-                        is supplied or if API reply is bogus.
+          PluginError - If no peer is configured or if API reply is bogus.
         Returns:
           dict containing bgp peer details
         '''
         try:
-            peer_ip = ipaddress.ip_address(peer_ip)
+            peer = ipaddress.ip_address(peer)
+            query_filter = '?remote-address=%s' % peer
         except ValueError:
-            raise PluginError(
-                "Peer '%s' does not seem to be a valid address" % peer_ip
-            )
+            query_filter = '?name=%s' % peer
         result = self.talk([
             '/routing/bgp/peer/getall',
-            '?remote-address=%s' % peer_ip,
+            query_filter,
         ])
         if not result:
-            raise PluginError("Peer '%s' not configured" % peer_ip)
+            raise PluginError("Peer '%s' not configured" % peer)
         if len(result) > 1:
             raise PluginError(
                 'API returned more than one record, cannot handle this'
@@ -104,7 +102,7 @@ def parse_args():
     )
     parser.add_argument(
         'peer', type=str,
-        help='IPv4/IPv6 remote-address of bgp peer'
+        help='IPv4/IPv6 remote-address or name of bgp peer'
     )
     return parser.parse_args()
 
