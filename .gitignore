@@ -1,0 +1,6 @@
+/debian/*.debhelper
+/debian/*.log
+/debian/*.substvars
+/debian/nagios-plugins-tikapy-bgp
+/debian/files
+/.pc
