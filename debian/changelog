@@ -1,3 +1,9 @@
+tikapy-icinga (0.1.1+xenial) xenial; urgency=medium
+
+  * Build for xenial 
+
+ -- Marco Fretz <marco.fretz@vshn.ch>  Fri, 28 Jul 2017 08:48:10 +0000
+
 tikapy-icinga (0.1.1) trusty; urgency=medium
 
   * Add missing dependency for python simple_icinga_plugin.
